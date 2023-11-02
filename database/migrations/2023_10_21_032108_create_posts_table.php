@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->string('extract');
             $table->text('body');
-            $table->enum('status',[1,2])->default(1);
+            $table->enum('status', [1, 2])->default(1);
 
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('catergory_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDeleter('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDeleter('cascade');
-
+            $table->foreign('catergory_id')->references('id')->on('catergories')->onDeleter('cascade');
 
             $table->timestamps();
         });

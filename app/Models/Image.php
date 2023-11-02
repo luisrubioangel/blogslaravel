@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Image extends Model
 {
     use HasFactory;
-    //Ralcion muchos a muchos
-    public function posts()
+    //Relacioin polimorfica
+    public function imgeable()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->morphTo();
     }
 }

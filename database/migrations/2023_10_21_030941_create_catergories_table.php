@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->foreignId('current_team_id')->nullable();
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,12 +12,13 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+ */
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+/* Route::get('/', function () {
+return view('welcome');
+}); */
+Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
