@@ -2,6 +2,11 @@
 /node_modules
 
 
+<<<<<<< HEAD
+=======
+
+/storage/*.key
+>>>>>>> a139bddaf4e65d8147a6f88518d4cb60b6d47b3f
 /vendor
 
 .phpunit.result.cache
