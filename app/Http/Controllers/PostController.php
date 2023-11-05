@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Catergory;
 use App\Models\Post;
+use App\Models\Tag;
 
 class PostController extends Controller
 {
@@ -24,6 +25,15 @@ class PostController extends Controller
 
     public function category(Catergory $category)
     {
-        return $category;
+        $posts = Post::where('catergory_id', $category->id)->where('status', 2)->latest('id')->paginate(6);
+
+        return view('posts.category', compact('posts', 'category'));
+    }
+
+    public function tags(Tag $tag)
+    {
+        $posts = $tag->posts()->where('status', 2)->latest('id')->paginate(4);
+
+        return view('posts.tag', compact('posts', 'tag'));
     }
 }
