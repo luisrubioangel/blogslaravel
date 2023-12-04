@@ -23,10 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        Storage::deleteDirectory('public/posts');
         Storage::makeDirectory('public/posts');
+        $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-        Catergory::factory(4)->create();
-        Tag::factory(8)->create();
+        Catergory::factory(2)->create();
+        Tag::factory(2)->create();
         $this->call(Postseeder::class);
 
     }

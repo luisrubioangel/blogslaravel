@@ -50,16 +50,7 @@
                                 </button>
                             </div>
 
-                            <!--
-                  Dropdown menu, show/hide based on menu state.
 
-                  Entering: "transition ease-out duration-100"
-                    From: "transform opacity-0 scale-95"
-                    To: "transform opacity-100 scale-100"
-                  Leaving: "transition ease-in duration-75"
-                    From: "transform opacity-100 scale-100"
-                    To: "transform opacity-0 scale-95"
-                -->
 
 
                             <div x-show="open" x-on:click.away="open=false"
@@ -71,8 +62,13 @@
                                 <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
 
+                                @can('admin.home')
                                 <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem" tabindex="-1" id="user-menu-item-1">Dashbord</a>
+                                @endcan
+
+                                {{-- <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem" tabindex="-1" id="user-menu-item-1">Dashbord</a> --}}
 
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}" x-data>
@@ -105,7 +101,7 @@
 
 
                             <!-- menu m-->
-                            <div class="flex -mr-2 md:hidden">
+                            {{-- <div class="flex -mr-2 md:hidden">
                                 <!-- Mobile menu button -->
                                 <button type="button" x-on:click="open=true"
                                     class="relative inline-flex items-center justify-center p-2 text-gray-400 bg-gray-800 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -124,7 +120,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
-                            </div>
+                            </div> --}}
 
 
 
@@ -179,7 +175,7 @@
                                             class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:bg-gray-700 hover:text-white">Sign
                                             out</a>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
 
                     </div>

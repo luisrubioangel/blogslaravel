@@ -3,9 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Dashboard</h1>
+<h1>Detalle de post</h1>
 @stop
 
 @section('content')
-<p>Welcome to this bsssssseautiful admin panel.</p>
+<p>Welcome to this beautiful admin panel.</p>
 @stop

@@ -317,21 +317,36 @@ return [
             'icon' => 'fas fa-tachometer-alt fa-fw',
             'label' => 4,
             'label_color' => 'success',
+            'can' => 'admin.home',
         ],
         ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorias',
             'route' => 'admin.categories.index',
-            'icon' => 'fas fa-fw fa-buffer',
+            'icon' => 'fas fa-fw fa fa-database',
             'active' => ['admin/categories/*'],
+            'can' => 'admin.categories.index',
         ],
         [
             'text' => 'Etiquetas',
             'route' => 'admin.tags.index',
             'icon' => 'fas fa-fw fa-bookmark',
             'active' => ['admin/tags/*'],
+            'can' => 'admin.tags.index',
+        ], [
+            'text' => 'Usuarios',
+            'route' => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-users',
+            'can' => 'admin.users.index',
+
+        ], [
+            'text' => 'Roles',
+            'route' => 'admin.roles.index',
+            'icon' => 'fas fa-fw fa-users',
+            'can' => 'admin.users.index',
+
         ],
-        [
+        /*   [
             'text' => 'multilevel',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
@@ -368,23 +383,16 @@ return [
                     'url' => '#',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
+        ], */
+        ['header' => 'BLOGS'],
         [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
+            'text' => 'Posts',
+            'route' => 'admin.posts.index',
+            'icon' => 'fas fa-fw fa-file',
+            'active' => ['admin/tags/*'],
+            'can' => 'admin.posts.index',
         ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
-        ],
+
     ],
 
     /*
@@ -539,5 +547,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

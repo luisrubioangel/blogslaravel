@@ -15,9 +15,11 @@
 
 <p>
 <div class="card">
+    @can('admin.categories.create')
     <div class="card-header">
         <a href="{{route('admin.categories.create')}}" class="btn btn-primary">Agregar Cateroria</a>
     </div>
+    @endcan
     <div class="card-body">
         <table class="table table-striped">
             <thead>
@@ -33,14 +35,18 @@
                     <td>{{$category->id}}</td>
                     <td>{{$category->name}}</td>
                     <td width="10px">
+                        @can('admin.categories.edit')
                         <a href="{{route('admin.categories.edit',$category)}}" class="btn btn-primary btn-sm">Editar</a>
+                        @endcan
                     </td>
                     <td width="10px">
+                        @can('admin.categories.edit')
                         <form action="{{route('admin.categories.destroy',$category)}}" method="POST">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                         </form>
+                        @endcan
                     </td>
                 </tr>
                 @endforeach
